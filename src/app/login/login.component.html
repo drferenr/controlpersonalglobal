@@ -10,28 +10,29 @@
             </div>          
         </div>
         <br>
-        <form [formGroup]="form" (ngSubmit)="login()">
+        <form [formGroup]="form">
             <div >
                 <label for="exampleInputEmail1" class="etiqueta">User Name</label>
                 <input type="text" class="form-control borde inputlogin" id="exampleInputuser" pattern=".{0,}" max="8"
                     aria-describedby="userHelp" placeholder="User Name" formControlName="Username">
                 <small id="emailHelp" class="form-text text-muted mensaje">
-                    Este sistema está restringido a personas autorizadas.</small>
+                    Este sistema está restringido a personas autorizadas.</small>                    
             </div>
             <div >
                 <label for="exampleInputPassword1" class="etiqueta">Password</label>
                 <input type="password" class="form-control borde inputlogin" id="Password" max="8"
                     placeholder="Password" formControlName="Password">
             </div>
-            <br>
-            <div id="buttons" class="row justify-content-center">
-                <div class="col-md-6 text-center">
-                    <button type="submit" class="btn btn-primary boton" [disabled]="!this.form.valid">Login</button>
-                </div>
-                <div class="col-md-6 text-center">
-                    <button class="btn btn-primary boton">Registrate</button>
-                </div>
-            </div>
+            <br>            
+            
         </form>
+        <div id="buttons" class="row justify-content-center">
+            <div class="col-md-6 text-center">
+                <button (click)="login()" type="submit" class="btn btn-primary boton" [disabled]="!this.form.valid">Login</button>
+            </div>
+            <div class="col-md-6 text-center">
+                <button (click)="openRegister()" class="btn btn-primary boton">Registrate</button>
+            </div>
+        </div>
     </div>
 </div>

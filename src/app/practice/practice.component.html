@@ -1,0 +1,106 @@
+<!-- <div class="row justify-content-center">
+    <div class="col-md-6 text-center">
+        <label>Numero 1</label>
+        <input type="number" [(ngModel)]="numeros.numero1">
+    </div>
+    <div class="col-md-6 text-center">
+        <label>Numero 2</label>
+        <input type="number" [(ngModel)]="numeros.numero2">
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-md-4 text-center">
+        <label>Sumar:&nbsp;</label>
+        <input type="checkbox" [(ngModel)]="operacion.suma" (change)="checkValue('suma')">
+    </div>
+    <div class="col-md-4 text-center">
+        <label>Resta:&nbsp;</label>
+        <input type="checkbox" [(ngModel)]="operacion.resta" (change)="checkValue('resta')">
+    </div>
+    <div class="col-md-4 text-center">
+        <label>Multiplicacion:&nbsp;</label>
+        <input type="checkbox" [(ngModel)]="operacion.mult" (change)="checkValue('mult')">
+    </div>
+    <div class="col-md-4 text-center">
+        <label>Division:&nbsp;</label>
+        <input type="checkbox" [(ngModel)]="operacion.div" (change)="checkValue('div')">
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-md-4 text-center">
+        <button class="btn btn-primary" (click)= "ejecutaroperacion()">Ejecutar</button>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-md-4 text-center" *ngIf="resultado !== ''"><label>El resultado es: {{resultado}}</label></div>    
+</div> -->
+<br>
+<div class="row justifiy-content-center">
+    <div class="col-md-4 text-center"><input type="text" class="reves" readonly [(ngModel)]= "resultado"></div>   
+    <div class="col-md-4 text-center">
+        <button class="btn btn-secondary" (click)="clear('C')">Clear</button>
+    </div>   
+    <div class="col-md-4 text-center">
+        <button class="btn btn-secondary" (click)="clear('AC')">All Clear</button>
+    </div>    
+</div>
+<br>
+<div class="row justify-content-center">    
+    <div class="col-md-3 text-center">
+        <button class="btn btn-secondary" (click)= "numer('7')">7</button>
+    </div>
+    <div class="col-md-3 text-center">
+        <button class="btn btn-secondary" (click)= "numer('8')">8</button>
+    </div>
+    <div class="col-md-3 text-center">
+        <button class="btn btn-secondary" (click)= "numer('9')">9</button>
+    </div>
+    <div class="col-md-3 text-center">
+        <button class="btn btn-secondary"  (click)="numer('+')">+</button>
+    </div>
+</div>
+<br>
+<div class="row justify-content-center">
+    <div class="col-md-3 text-center">
+        <button class="btn btn-secondary" (click)= "numer('4')">4</button>
+    </div>
+    <div class="col-md-3 text-center">
+        <button class="btn btn-secondary" (click)= "numer('5')">5</button>
+    </div>
+    <div class="col-md-3 text-center">
+        <button class="btn btn-secondary" (click)= "numer('6')">6</button>
+    </div>
+    <div class="col-md-3 text-center">
+        <button class="btn btn-secondary" (click)="numer('-')">-</button>
+    </div>
+</div>
+<br>
+<div class="row justify-content-center">
+    <div class="col-md-3 text-center">
+        <button class="btn btn-secondary" (click)= "numer('1')">1</button>
+    </div>
+    <div class="col-md-3 text-center">
+        <button class="btn btn-secondary" (click)= "numer('2')">2</button>
+    </div>
+    <div class="col-md-3 text-center">
+        <button class="btn btn-secondary" (click)= "numer('3')">3</button>
+    </div>
+    <div class="col-md-3 text-center">
+        <button class="btn btn-secondary" (click)="numer('*')">*</button>
+    </div>
+</div>
+<br>
+<div class="row justify-content-center">
+    <div class="col-md-3 text-center">
+        <button class="btn btn-secondary" (click)= "numer('.')">.</button>
+    </div>
+    <div class="col-md-3 text-center">
+        <button class="btn btn-secondary" (click)= "numer('0')">0</button>
+    </div>
+    <div class="col-md-3 text-center">
+        <button class="btn btn-secondary" (click)=  "ejecutaroperacion()" >=</button>
+    </div>
+    <div class="col-md-3 text-center">
+        <button class="btn btn-secondary" (click)="numer('/')">/</button>
+    </div>
+</div>

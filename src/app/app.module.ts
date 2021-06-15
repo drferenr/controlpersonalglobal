@@ -8,6 +8,7 @@ import { NavbarheaderComponent } from './navbarheader/navbarheader.component';
 import { NavbarfooterComponent } from './navbarfooter/navbarfooter.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegistroComponent } from './registro/registro.component';
+import { PracticeComponent } from './practice/practice.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { RegistroComponent } from './registro/registro.component';
     LoginComponent,
     NavbarheaderComponent,
     NavbarfooterComponent,
-    RegistroComponent
+    RegistroComponent,
+    PracticeComponent
   ],
   imports: [
     BrowserModule,

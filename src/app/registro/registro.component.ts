@@ -9,12 +9,15 @@ import { UserService } from '../@Core/services/user/user.service';
 })
 export class RegistroComponent implements OnInit {
 
-  constructor(private userservice:UserService) { }
+
+  constructor(private userservice:UserService) {
+   
+  }
 
   ngOnInit(): void {
     this.userservice.register();
   }
 
- 
 
 }
+  
