@@ -1,4 +1,5 @@
-import { Component,  Pipe, PipeTransform } from '@angular/core';
+import { Component, Pipe, PipeTransform } from '@angular/core';
+import { NotificationsService } from 'angular2-notifications';
 
 @Component({
   selector: 'app-practicatabla',
@@ -7,11 +8,11 @@ import { Component,  Pipe, PipeTransform } from '@angular/core';
 })
 
 
-export class PracticatablaComponent   {
+export class PracticatablaComponent {
 
   users: any[] = [];
 
-  completeUsers: any[] = [];  
+  completeUsers: any[] = [];
 
   data = {
     nombre: "",
@@ -24,10 +25,10 @@ export class PracticatablaComponent   {
 
   actualindex = -1;
 
-  constructor() { }
+  constructor(private _service: NotificationsService) { }
 
 
-  
+
 
   agregar() {
 
@@ -71,7 +72,12 @@ export class PracticatablaComponent   {
         email: ""
       };
     } else {
-      alert("debe llenar todos los campos");
+      this._service.error('Error', 'Debe llenar todos los campos',{
+        timeOut: 3000,
+        showProgressBar: true,
+        pauseOnHover: true,
+        clickToClose: true
+      })
     }
   }
 
@@ -122,7 +128,7 @@ export class PracticatablaComponent   {
           temp.push(user);
         }
       } else if (this.selectValue === "2") {
-        if (user.ci.includes(Number(ValueToSearch))) {
+        if (user.ci.toString().includes(ValueToSearch)) {
           temp.push(user);
         }
       } else if (this.selectValue === "3") {

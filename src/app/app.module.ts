@@ -11,6 +11,9 @@ import { RegistroComponent } from './registro/registro.component';
 import { PracticeComponent } from './practice/practice.component';
 import { PracticatablaComponent } from './practicatabla/practicatabla.component';
 import { Hpipe } from './@Core/pipes/hpipe';
+import { SimpleNotificationsModule } from 'angular2-notifications';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -25,9 +28,11 @@ import { Hpipe } from './@Core/pipes/hpipe';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SimpleNotificationsModule . forRoot ( )
   ],
   exports: [
     Hpipe
