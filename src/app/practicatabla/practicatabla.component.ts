@@ -1,13 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,  Pipe, PipeTransform } from '@angular/core';
 
 @Component({
   selector: 'app-practicatabla',
   templateUrl: './practicatabla.component.html',
   styleUrls: ['./practicatabla.component.sass']
 })
-export class PracticatablaComponent implements OnInit {
 
-  users: any[] = []
+
+export class PracticatablaComponent   {
+
+  users: any[] = [];
+
+  completeUsers: any[] = [];  
 
   data = {
     nombre: "",
@@ -16,12 +20,14 @@ export class PracticatablaComponent implements OnInit {
     email: ""
   }
 
+  selectValue = "0";
+
   actualindex = -1;
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+
+  
 
   agregar() {
 
@@ -33,15 +39,25 @@ export class PracticatablaComponent implements OnInit {
 
     if (this.data.nombre !== '' && this.data.apellido !== ''
       && this.data.ci !== 0 && this.data.email !== '') {
-        
+
       if (actual !== -1) {
         this.users[actual].ci = this.data.ci;
         this.users[actual].nombre = this.data.nombre;
         this.users[actual].apellido = this.data.apellido;
         this.users[actual].email = this.data.email;
+        this.completeUsers[actual].ci = this.data.ci;
+        this.completeUsers[actual].nombre = this.data.nombre;
+        this.completeUsers[actual].apellido = this.data.apellido;
+        this.completeUsers[actual].email = this.data.email;
 
       } else {
         this.users.push({
+          nombre: this.data.nombre,
+          apellido: this.data.apellido,
+          ci: this.data.ci,
+          email: this.data.email
+        });
+        this.completeUsers.push({
           nombre: this.data.nombre,
           apellido: this.data.apellido,
           ci: this.data.ci,
@@ -74,6 +90,7 @@ export class PracticatablaComponent implements OnInit {
     console.log(index);
     if (index !== -1) {
       this.users.splice(index, 1);
+      this.completeUsers.splice(index, 1);
     }
   }
 
@@ -88,6 +105,33 @@ export class PracticatablaComponent implements OnInit {
     }
     return -1;
   }
+  test() {
+    console.log(this.selectValue);
+  }
 
+  search(ValueToSearch: string) {
+
+    let temp = [];
+    for (let user of this.completeUsers) {
+      if (this.selectValue === "0") {
+        if (user.nombre.includes(ValueToSearch)) {
+          temp.push(user);
+        }
+      } else if (this.selectValue === "1") {
+        if (user.apellido.includes(ValueToSearch)) {
+          temp.push(user);
+        }
+      } else if (this.selectValue === "2") {
+        if (user.ci.includes(Number(ValueToSearch))) {
+          temp.push(user);
+        }
+      } else if (this.selectValue === "3") {
+        if (user.email.includes(ValueToSearch)) {
+          temp.push(user);
+        }
+      }
+    }
+    this.users = temp;
+  }
 
 }

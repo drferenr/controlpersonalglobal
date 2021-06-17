@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegistroComponent } from './registro/registro.component';
 import { PracticeComponent } from './practice/practice.component';
 import { PracticatablaComponent } from './practicatabla/practicatabla.component';
+import { Hpipe } from './@Core/pipes/hpipe';
 
 @NgModule({
   declarations: [
@@ -19,13 +20,17 @@ import { PracticatablaComponent } from './practicatabla/practicatabla.component'
     NavbarfooterComponent,
     RegistroComponent,
     PracticeComponent,
-    PracticatablaComponent
+    PracticatablaComponent,
+    Hpipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule
+  ],
+  exports: [
+    Hpipe
   ],
   providers: [],
   bootstrap: [AppComponent]
