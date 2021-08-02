@@ -25,7 +25,7 @@ export class PracticatablaComponent {
 
   actualindex = -1;
 
-  constructor(private _service: NotificationsService) { }
+  constructor(private Swall: NotificationsService) { }
 
 
 
@@ -72,13 +72,13 @@ export class PracticatablaComponent {
         email: ""
       };
     } else {
-      this._service.error('Error', 'Debe llenar todos los campos',{
-        timeOut: 3000,
-        showProgressBar: true,
-        pauseOnHover: true,
-        clickToClose: true
+      this.Swall.error({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+        footer: '<a href=""> Why do I have this issue?</a>'
       })
-    }
+      }    
   }
 
 
